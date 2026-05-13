@@ -31,7 +31,7 @@ export default function ExplorePage() {
         .eq('user_id', uid)
         .eq('source', 'solo')
       // Deduplicate — user may have reacted to same food across multiple sessions
-      const ids = [...new Set((reacted ?? []).map((r) => r.food_id))]
+      const ids = Array.from(new Set((reacted ?? []).map((r) => r.food_id)))
       if (ids.length) query = query.not('id', 'in', `(${ids.join(',')})`)
     } else {
       // Filter out guest-reacted foods
