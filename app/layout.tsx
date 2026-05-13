@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/shared/Navbar'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
   title: 'Food Match — Find What Everyone Loves',
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <main className="min-h-screen">{children}</main>
+        <Analytics />
       </body>
     </html>
   )
